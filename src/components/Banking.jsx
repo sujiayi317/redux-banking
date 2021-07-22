@@ -1,31 +1,36 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { deposit, withdraw, collectInterest, deleteAccount } from '../actions/bankingActions';
 
 const Banking = () => {
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
 
   const handleDeposit = () => {
-    dispatch({ type: 'DEPOSIT', amount: parseInt(amount) });
+    // dispatch({ type: 'DEPOSIT', amount: parseInt(amount) });
+    dispatch(deposit(amount));
   };
 
   const handleWithdraw = () => {
-    dispatch({
-      type: 'WITHDRAW',
-      amount: parseInt(amount),
-    });
+    // dispatch({
+    //   type: 'WITHDRAW',
+    //   amount: parseInt(amount),
+    // });
+    dispatch(withdraw(amount));
   };
 
   const handleCollectInterest = () => {
-    dispatch({
-      type: 'COLLECT_INTEREST',
-    });
+    // dispatch({
+    //   type: 'COLLECT_INTEREST',
+    // });
+    dispatch(collectInterest());
   };
 
   const handleDelete = () => {
-    dispatch({
-      type: 'DELETE_ACCOUNT',
-    });
+    // dispatch({
+    //   type: 'DELETE_ACCOUNT',
+    // });
+    dispatch(deleteAccount());
   };
 
   const handleAccountChange = () => {};
@@ -58,27 +63,3 @@ const Banking = () => {
 };
 
 export default Banking;
-// action
-
-// deposit
-
-const deposit = {
-  type: 'DEPOSIT',
-  amount: 20,
-};
-
-// withdraw
-const withdraw = {
-  type: 'WITHDRAW',
-  amount: 3,
-};
-
-// collect interest
-const collectInterest = {
-  type: 'COLLECT_INTEREST',
-};
-
-// delete account
-const deleteAccount = {
-  type: 'DELETE_ACCOUNT',
-};
