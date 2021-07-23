@@ -30,6 +30,12 @@ export const toggleAccount = () => {
   };
 };
 
+export const toggleAuth = () => {
+  return {
+    type: 'TOGGLE_AUTH'
+  }
+}
+
 // action
 
 // deposit
